@@ -1,9 +1,8 @@
 package com.gmail.eamosse.idbdata.datasources
 
+import com.gmail.eamosse.idbdata.api.response.CategoryResponse
 import com.gmail.eamosse.idbdata.api.response.TokenResponse
-import com.gmail.eamosse.idbdata.api.response.toToken
 import com.gmail.eamosse.idbdata.api.service.MovieService
-import com.gmail.eamosse.idbdata.data.Token
 import com.gmail.eamosse.idbdata.utils.Result
 
 /**
