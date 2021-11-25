@@ -1,6 +1,7 @@
 package com.gmail.eamosse.idbdata.datasources
 
 import com.gmail.eamosse.idbdata.api.response.CategoryResponse
+import com.gmail.eamosse.idbdata.api.response.MoviesResponse
 import com.gmail.eamosse.idbdata.api.response.TokenResponse
 import com.gmail.eamosse.idbdata.api.service.MovieService
 import com.gmail.eamosse.idbdata.utils.Result
@@ -42,6 +43,27 @@ internal class OnlineDataSource(private val service: MovieService) {
     suspend fun getCategories(): Result<List<CategoryResponse.Genre>> {
         return try {
             val response = service.getCategories()
+            if (response.isSuccessful) {
+                Result.Succes(response.body()!!.genres)
+            } else {
+                Result.Error(
+                    exception = Exception(),
+                    message = response.message(),
+                    code = response.code()
+                )
+            }
+        } catch (e: Exception) {
+            Result.Error(
+                exception = e,
+                message = e.message ?: "No message",
+                code = -1
+            )
+        }
+    }
+
+    suspend fun getMovies(): Result<List<MoviesResponse.Movie>> {
+        return try {
+            val response = service.getMovies()
             if (response.isSuccessful) {
                 Result.Succes(response.body()!!.genres)
             } else {

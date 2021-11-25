@@ -1,13 +1,13 @@
 package com.gmail.eamosse.idbdata.api.response
 
-import com.gmail.eamosse.idbdata.data.Category
+import com.gmail.eamosse.idbdata.data.Movie
 import com.google.gson.annotations.SerializedName
 
-internal data class CategoryResponse(
-    @SerializedName("genres")
-    val genres: List<Genre>
+internal data class MoviesResponse(
+    @SerializedName("movies")
+    val genres: List<Movie>
 ) {
-    data class Genre(
+    data class Movie(
         @SerializedName("id")
         val id: Int,
         @SerializedName("name")
@@ -15,7 +15,7 @@ internal data class CategoryResponse(
     )
 }
 
-internal fun CategoryResponse.Genre.toCategory() = Category(
+internal fun MoviesResponse.Movie.toMovie() = Movie(
     id = id,
     name = name
 )
