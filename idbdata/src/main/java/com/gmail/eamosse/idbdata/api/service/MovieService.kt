@@ -13,6 +13,6 @@ internal interface MovieService {
     @GET("genre/movie/list")
     suspend fun getCategories(): Response<CategoryResponse>
 
-    @GET("/discover/movie")
+    @GET("/3/discover/movie")
     suspend fun getMovies(): Response<MoviesResponse>
 }

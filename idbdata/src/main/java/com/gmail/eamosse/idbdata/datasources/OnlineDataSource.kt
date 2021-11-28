@@ -1,5 +1,6 @@
 package com.gmail.eamosse.idbdata.datasources
 
+import android.util.Log
 import com.gmail.eamosse.idbdata.api.response.CategoryResponse
 import com.gmail.eamosse.idbdata.api.response.MoviesResponse
 import com.gmail.eamosse.idbdata.api.response.TokenResponse
@@ -65,7 +66,7 @@ internal class OnlineDataSource(private val service: MovieService) {
         return try {
             val response = service.getMovies()
             if (response.isSuccessful) {
-                Result.Succes(response.body()!!.genres)
+                Result.Succes(response.body()!!.results)
             } else {
                 Result.Error(
                     exception = Exception(),

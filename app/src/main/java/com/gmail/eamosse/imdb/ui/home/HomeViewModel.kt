@@ -1,10 +1,12 @@
 package com.gmail.eamosse.imdb.ui.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gmail.eamosse.idbdata.data.Category
+import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.idbdata.data.Token
 import com.gmail.eamosse.idbdata.repository.MovieRepository
 import com.gmail.eamosse.idbdata.utils.Result
@@ -23,6 +25,10 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
     private val _categories: MutableLiveData<List<Category>> = MutableLiveData()
     val categories: LiveData<List<Category>>
         get() = _categories
+
+    private val _movies: MutableLiveData<List<Movie>> = MutableLiveData()
+    val movies: LiveData<List<Movie>>
+        get() = _movies
 
     private val _error: MutableLiveData<String> = MutableLiveData()
     val error: LiveData<String>
@@ -58,6 +64,20 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
             when (val result = repository.getCategories()) {
                 is Result.Succes -> {
                     _categories.postValue(result.data)
+                }
+                is Result.Error -> {
+                    _error.postValue(result.message)
+                }
+            }
+        }
+    }
+
+    fun getMovies() {
+        viewModelScope.launch(Dispatchers.IO) {
+            when (val result = repository.getMovies()) {
+                is Result.Succes -> {
+                    Log.d("CREATION", result.toString())
+                    _movies.postValue(result.data)
                 }
                 is Result.Error -> {
                     _error.postValue(result.message)

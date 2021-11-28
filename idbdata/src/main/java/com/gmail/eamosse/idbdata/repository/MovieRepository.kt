@@ -1,5 +1,6 @@
 package com.gmail.eamosse.idbdata.repository
 
+import android.util.Log
 import com.gmail.eamosse.idbdata.api.response.toCategory
 import com.gmail.eamosse.idbdata.api.response.toEntity
 import com.gmail.eamosse.idbdata.api.response.toMovie
@@ -56,13 +57,15 @@ class MovieRepository : KoinComponent {
     suspend fun getMovies(): Result<List<Movie>> {
         return when (val result = online.getMovies()) {
             is Result.Succes -> {
-                // On utilise la fonction map pour convertir les catégories de la réponse serveur
-                // en liste de categories d'objets de l'application
+                // On utilise la fonction map pour convertir les films de la réponse serveur
+                // en liste de categories d'objets de l'applicatio
                 val movies = result.data.map {
                     it.toMovie()
                 }
+                Log.d("CREATION", movies.toString())
                 Result.Succes(movies)
             }
+
             is Result.Error -> result
         }
     }

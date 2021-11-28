@@ -10,34 +10,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="2dp">
+
+
+        <ImageView
+            android:id="@+id/movie_avatar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/ic_baseline_live_tv_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/movie_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"
             android:gravity="center"
+            android:text="@{item.name}"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:text="@{item.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Film 1" />
+            app:layout_constraintBottom_toBottomOf="@id/movie_avatar"
+            app:layout_constraintStart_toStartOf="@id/movie_avatar"
+            app:layout_constraintTop_toTopOf="@id/movie_avatar"
+            app:layout_constraintVertical_bias="0.521"
+            tools:text="Film trop bien" />
 
         <ImageButton
-            android:id="@+id/show_movie"
+            android:id="@+id/show_Category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="88dp"
+            android:layout_marginEnd="16dp"
             android:background="@null"
             app:layout_constraintBottom_toBottomOf="@+id/movie_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/movie_name"
-            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
 
