@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import com.gmail.eamosse.imdb.NavigationListener
 import com.gmail.eamosse.imdb.databinding.FragmentHomeBinding
+import com.gmail.eamosse.imdb.ui.notifications.NotificationsFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment() {
@@ -20,8 +22,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-        binding.categoryList.setOnClickListener{
-            it.showF
+        binding.categoryList.setOnClickListener {
+            (activity as? NavigationListener)?.let {
+                it.showFragment(NotificationsFragment())
+            }
         }
         return binding.root
     }
