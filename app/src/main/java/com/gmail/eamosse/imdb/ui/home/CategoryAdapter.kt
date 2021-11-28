@@ -13,7 +13,6 @@ class CategoryAdapter(private val items: List<Category>) :
 
     inner class ViewHolder(private val binding: CategoryListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        val mShowCategory: ImageButton = binding.showCategory
         fun bind(item: Category) {
             binding.item = item
         }
