@@ -31,6 +31,10 @@
         <argument
             android:name="myCat"
             app:argType="string" />
+
+        <argument
+            android:name="catId"
+            app:argType="string" />
     </fragment>
 
     <fragment

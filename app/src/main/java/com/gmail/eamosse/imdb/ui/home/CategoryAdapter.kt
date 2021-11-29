@@ -29,7 +29,7 @@ class CategoryAdapter(private val items: List<Category>) :
         holder.bind(items[position])
         holder.itemView.setOnClickListener {
             val action =
-                HomeFragmentDirections.actionHomeFragmentToHomeSecondFragment(position.toString(), items[position].name)
+                HomeFragmentDirections.actionHomeFragmentToHomeSecondFragment(position.toString(), items[position].name, items[position].id.toString())
             findNavController(it).navigate(action)
         }
     }

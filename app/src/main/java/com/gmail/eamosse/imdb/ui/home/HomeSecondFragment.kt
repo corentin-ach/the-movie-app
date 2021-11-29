@@ -35,7 +35,7 @@ class HomeSecondFragment : Fragment() {
                 viewLifecycleOwner,
                 Observer {
                     // récupérer les catégories
-                    getMovies()
+                    getMovies(args.catId)
                 }
             )
 

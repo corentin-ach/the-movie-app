@@ -54,8 +54,8 @@ class MovieRepository : KoinComponent {
         }
     }
 
-    suspend fun getMovies(): Result<List<Movie>> {
-        return when (val result = online.getMovies()) {
+    suspend fun getMovies(catId: String): Result<List<Movie>> {
+        return when (val result = online.getMovies(catId)) {
             is Result.Succes -> {
                 // On utilise la fonction map pour convertir les films de la réponse serveur
                 // en liste de categories d'objets de l'applicatio
