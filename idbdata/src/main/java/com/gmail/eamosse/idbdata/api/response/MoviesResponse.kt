@@ -12,12 +12,18 @@ internal data class MoviesResponse(
         @SerializedName("id")
         val id: Int,
         @SerializedName("original_title")
-        val name: String
+        val name: String,
+        @SerializedName("vote_average")
+        val vote: String,
+        @SerializedName("release_date")
+        val date: String
     )
 }
 
 internal fun MoviesResponse.Movie.toMovie() = Movie(
     id = id,
-    name = name
+    name = name,
+    vote = vote,
+    date = date
 )
 

@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/movie_avatar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="80dp"
+            android:layout_height="110dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
@@ -31,24 +31,54 @@
             android:id="@+id/movie_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"
+            android:layout_marginStart="88dp"
             android:gravity="center"
             android:text="@{item.name}"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/movie_avatar"
             app:layout_constraintStart_toStartOf="@id/movie_avatar"
             app:layout_constraintTop_toTopOf="@id/movie_avatar"
-            app:layout_constraintVertical_bias="0.521"
+            app:layout_constraintVertical_bias="0.068"
             tools:text="Film trop bien" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_vote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            android:gravity="center"
+            android:text="@{item.vote}"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/movie_avatar"
+            app:layout_constraintStart_toStartOf="@id/movie_avatar"
+            app:layout_constraintTop_toTopOf="@id/movie_avatar"
+            tools:text="Vote : note du film" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/movie_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            android:gravity="center"
+            android:text="@{item.date}"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/movie_avatar"
+            app:layout_constraintStart_toStartOf="@id/movie_avatar"
+            app:layout_constraintTop_toTopOf="@id/movie_avatar"
+            app:layout_constraintVertical_bias="0.802"
+            tools:text="Date du film" />
 
         <ImageButton
             android:id="@+id/show_Category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="28dp"
             android:background="@null"
-            app:layout_constraintBottom_toBottomOf="@+id/movie_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/movie_name"
             app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
