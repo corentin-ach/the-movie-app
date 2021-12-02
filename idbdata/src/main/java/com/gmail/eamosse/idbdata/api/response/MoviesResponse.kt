@@ -16,7 +16,9 @@ internal data class MoviesResponse(
         @SerializedName("vote_average")
         val vote: String,
         @SerializedName("release_date")
-        val date: String
+        val date: String,
+        @SerializedName("backdrop_path")
+        val poster: String
     )
 }
 
@@ -24,6 +26,7 @@ internal fun MoviesResponse.Movie.toMovie() = Movie(
     id = id,
     name = name,
     vote = vote,
-    date = date
+    date = date,
+    poster = "https://image.tmdb.org/t/p/w185$poster"
 )
 

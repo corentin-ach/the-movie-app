@@ -34,7 +34,6 @@ class HomeFragment : Fragment() {
                     getCategories()
                 }
             )
-
             categories.observe(
                 viewLifecycleOwner,
                 Observer {

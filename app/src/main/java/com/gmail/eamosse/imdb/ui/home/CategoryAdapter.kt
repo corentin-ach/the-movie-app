@@ -1,5 +1,6 @@
 package com.gmail.eamosse.imdb.ui.home
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -7,6 +8,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.gmail.eamosse.idbdata.data.Category
 import com.gmail.eamosse.imdb.databinding.CategoryListItemBinding
+import java.util.*
 
 class CategoryAdapter(private val items: List<Category>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
@@ -26,6 +28,7 @@ class CategoryAdapter(private val items: List<Category>) :
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        Log.d("CALL","onBindViewHolder")
         holder.bind(items[position])
         holder.itemView.setOnClickListener {
             val action =
