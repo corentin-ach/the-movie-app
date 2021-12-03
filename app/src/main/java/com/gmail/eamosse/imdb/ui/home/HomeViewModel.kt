@@ -12,6 +12,7 @@ import com.gmail.eamosse.idbdata.repository.MovieRepository
 import com.gmail.eamosse.idbdata.utils.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.util.*
 
 /**
  * VM permettant de gérer les données de la vue
@@ -29,6 +30,11 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
     private val _movies: MutableLiveData<List<Movie>> = MutableLiveData()
     val movies: LiveData<List<Movie>>
         get() = _movies
+
+    //pour lire one movie
+    private val _onemovie: MutableLiveData<Movie> = MutableLiveData()
+    val movie: LiveData<Movie>
+        get() = _onemovie
 
     private val _error: MutableLiveData<String> = MutableLiveData()
     val error: LiveData<String>
@@ -85,4 +91,19 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
             }
         }
     }
+
+    //recuperer un seul film pour avoir toutes ses infos
+    fun getOneMovie(movId: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            when (val result = repository.getOneMovie(movId)) {
+                is Result.Succes -> {
+                    Log.d("CREATION ONE MOVIE", result.toString())
+                    _onemovie.postValue(result.data)                }
+                is Result.Error -> {
+                    _error.postValue(result.message)
+                }
+            }
+        }
+    }
 }
+

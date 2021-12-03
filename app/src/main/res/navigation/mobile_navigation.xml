@@ -14,6 +14,7 @@
             android:id="@+id/action_HomeFragment_to_HomeSecondFragment"
             app:destination="@id/navigation_home_second" />
     </fragment>
+
     <fragment
         android:id="@+id/navigation_home_second"
         android:name="com.gmail.eamosse.imdb.ui.home.HomeSecondFragment"
@@ -28,8 +29,24 @@
             android:name="catId"
             app:argType="string" />
         <action
-            android:id="@+id/action_navigation_home_second_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            android:id="@+id/action_navigation_home_second_to_navigation_home_third"
+            app:destination="@id/navigation_home_third" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home_third"
+        android:name="com.gmail.eamosse.imdb.ui.home.HomeThirdFragment"
+        android:label="@+id/navigation_home_third_label">
+        <argument
+            android:name="myArg"
+            app:argType="string" />
+        <argument
+            android:name="myMov"
+            app:argType="string" />
+        <argument
+            android:name="movId"
+            app:argType="string" />
+
     </fragment>
 
     <fragment

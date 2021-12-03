@@ -65,6 +65,19 @@ class MovieRepository : KoinComponent {
                 Log.d("CREATION", movies.toString())
                 Result.Succes(movies)
             }
+            is Result.Error -> result
+        }
+    }
+
+    suspend fun getOneMovie(movId: String): Result<Movie> {
+        return when (val result = online.getOneMovie(movId)) {
+            is Result.Succes -> {
+                // On utilise la fonction map pour convertir les films de la réponse serveur
+                // en liste de categories d'objets de l'applicatio
+                val movie = result.data.toMovie()
+                Log.d("CREATION ONE MOVIE", movie.toString())
+                Result.Succes(movie)
+            }
 
             is Result.Error -> result
         }

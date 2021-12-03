@@ -3,7 +3,6 @@ package com.gmail.eamosse.idbdata.api.response
 import com.gmail.eamosse.idbdata.data.Movie
 import com.google.gson.annotations.SerializedName
 internal data class MoviesResponse(
-
     // changer movies par results
     @SerializedName("results")
     val results: List<Movie>,
@@ -27,6 +26,7 @@ internal fun MoviesResponse.Movie.toMovie() = Movie(
     name = name,
     vote = vote,
     date = date,
-    poster = "https://image.tmdb.org/t/p/w185$poster"
+    poster = "https://image.tmdb.org/t/p/w185$poster",
+    overview = "nothing"
 )
 
