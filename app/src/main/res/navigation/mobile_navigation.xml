@@ -17,16 +17,13 @@
     <fragment
         android:id="@+id/navigation_home_second"
         android:name="com.gmail.eamosse.imdb.ui.home.HomeSecondFragment"
-        android:label="@string/home_second">
-
+        android:label="@+id/navigation_home_second_label">
         <argument
             android:name="myArg"
             app:argType="string" />
-
         <argument
             android:name="myCat"
             app:argType="string" />
-
         <argument
             android:name="catId"
             app:argType="string" />
@@ -40,7 +37,6 @@
         android:name="com.gmail.eamosse.imdb.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.gmail.eamosse.imdb.ui.notifications.NotificationsFragment"

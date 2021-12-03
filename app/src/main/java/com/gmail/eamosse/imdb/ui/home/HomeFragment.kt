@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         with(homeViewModel) {
             token.observe(
                 viewLifecycleOwner,
@@ -40,7 +39,6 @@ class HomeFragment : Fragment() {
                     binding.categoryList.adapter = CategoryAdapter(it)
                 }
             )
-
             error.observe(
                 viewLifecycleOwner,
                 Observer {
