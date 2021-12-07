@@ -78,7 +78,6 @@ class MovieRepository : KoinComponent {
                 Log.d("CREATION ONE MOVIE", movie.toString())
                 Result.Succes(movie)
             }
-
             is Result.Error -> result
         }
     }

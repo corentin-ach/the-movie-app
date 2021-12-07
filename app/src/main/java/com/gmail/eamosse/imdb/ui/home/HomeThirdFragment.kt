@@ -39,6 +39,7 @@ class HomeThirdFragment : Fragment() {
             movie.observe(
                 viewLifecycleOwner,
                 Observer {
+                    it.id.toString()
                 }
             )
             error.observe(

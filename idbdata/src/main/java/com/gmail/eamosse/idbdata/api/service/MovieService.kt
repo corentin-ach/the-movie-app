@@ -18,6 +18,7 @@ internal interface MovieService {
     @GET("/3/discover/movie")
     suspend fun getMovies(@Query("with_genres") catId: String): Response<MoviesResponse>
 
+    // lien okkk https://api.themoviedb.org/3/movie/[ID_MOVIE]?api_key=507a86e6d98ae2b2cd600e594ee02637
     @GET("/3/movie")
     suspend fun getOneMovie(movId: String): Response<OneMovieResponse>
 }
