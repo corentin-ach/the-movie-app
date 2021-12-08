@@ -36,12 +36,14 @@ class HomeThirdFragment : Fragment() {
                     getOneMovie(args.movId)
                 }
             )
-            movie.observe(
-                viewLifecycleOwner,
-                Observer {
-                    it.id.toString()
-                }
-            )
+            with(binding) {
+                movie.observe(
+                    viewLifecycleOwner,
+                    Observer {
+                        title.text = it.name
+                    }
+                )
+            }
             error.observe(
                 viewLifecycleOwner,
                 Observer {
