@@ -8,7 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.gmail.eamosse.imdb.R
 import com.gmail.eamosse.imdb.databinding.FragmentHomeThirdBinding
+import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeThirdFragment : Fragment() {
@@ -28,7 +30,8 @@ class HomeThirdFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "Film - " + args.myMov
+        (activity as AppCompatActivity).supportActionBar?.title = "Film: " + args.myMov
+
         with(homeViewModel) {
             token.observe(
                 viewLifecycleOwner,
@@ -40,6 +43,7 @@ class HomeThirdFragment : Fragment() {
                 movie.observe(
                     viewLifecycleOwner,
                     Observer {
+                        chargerPosterPicasso(it.poster)
                         title.text = it.name
                     }
                 )
@@ -51,5 +55,13 @@ class HomeThirdFragment : Fragment() {
                 }
             )
         }
+    }
+
+    fun chargerPosterPicasso(poster: String) {
+        Picasso.get()
+            // .load("https://image.tmdb.org/t/p/w185/wdE6ewaKZHr62bLqCn7A2DiGShm.jpg") //fonctionnel
+            .load(poster) // fonctionnel
+            .error(R.drawable.ic_baseline_arrow_forward_ios_24)
+            .into(binding.movieAvatar)
     }
 }

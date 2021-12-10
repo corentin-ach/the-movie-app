@@ -100,7 +100,7 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
                     Log.d("CREATION ONE MOVIE", result.toString())
                     _onemovie.postValue(result.data)                }
                 is Result.Error -> {
-                    Log.d("***Result","Error")
+                    Log.d("***Result get One Movie - View Model","Error")
                     _error.postValue(result.message)
                 }
             }

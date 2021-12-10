@@ -33,16 +33,15 @@ class MovieAdapter(private val items: List<Movie>) :
     }
 
     override fun getItemCount(): Int = items.size
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(items[position])
-
         holder.itemView.setOnClickListener {
             val action =
                 //Log.d("CALL FRAG THIRD","onBindViewHolder")
                 HomeSecondFragmentDirections.actionNavigationHomeSecondToNavigationHomeThird(position.toString(), items[position].name, items[position].id.toString())
             Navigation.findNavController(it).navigate(action)
         }
-        
         val movie : Movie = items[position]
         // Display Neighbour Avatar
         Picasso.get()

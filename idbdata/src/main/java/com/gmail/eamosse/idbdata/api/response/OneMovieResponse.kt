@@ -11,7 +11,7 @@ internal data class OneMovieResponse(
     val vote: String,
     @SerializedName("release_date")
     val date: String,
-    @SerializedName("backdrop_path")
+    @SerializedName("poster_path")
     val poster: String,
     @SerializedName("overview")
     val overview: String

@@ -16,7 +16,7 @@ internal data class MoviesResponse(
         val vote: String,
         @SerializedName("release_date")
         val date: String,
-        @SerializedName("backdrop_path")
+        @SerializedName("poster_path")
         val poster: String
     )
 }
