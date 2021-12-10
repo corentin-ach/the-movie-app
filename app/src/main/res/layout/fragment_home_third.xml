@@ -55,7 +55,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/movie_avatar" />
 
-
+            <TextView
+                android:id="@+id/vote_average"
+                android:layout_width="20dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="20dp"
+                android:text="AVERAGE"
+                app:layout_constraintStart_toEndOf="@id/anneflixtext"
+                app:layout_constraintTop_toTopOf="@id/anneflixtext" />
 
             <TextView
                 android:id="@+id/overview"
@@ -68,6 +75,9 @@
                 android:autoSizeTextType="uniform"
                 android:text="OVERVIEW"
                 android:textColor="@color/whiteanne"/>
+
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.gmail.eamosse.imdb.R
 import com.gmail.eamosse.imdb.databinding.FragmentHomeThirdBinding
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_home_third.*
 import kotlinx.android.synthetic.main.fragment_home_third.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -45,8 +46,9 @@ class HomeThirdFragment : Fragment() {
                     viewLifecycleOwner,
                     Observer {
                         chargerPosterPicasso(it.backdrop_path)
-                        title.text = " "+it.name+" "
+                        title.text = " " + it.name + " "
                         overview.text = it.overview
+                        vote_average.text = it.vote_average.toString()
                     }
                 )
             }
@@ -59,7 +61,7 @@ class HomeThirdFragment : Fragment() {
         }
     }
 
-    fun chargerPosterPicasso(poster: String) {
+    private fun chargerPosterPicasso(poster: String) {
         Picasso.get()
             // .load("https://image.tmdb.org/t/p/w185/wdE6ewaKZHr62bLqCn7A2DiGShm.jpg") //fonctionnel
             .load(poster) // fonctionnel

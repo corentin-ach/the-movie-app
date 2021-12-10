@@ -32,7 +32,7 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
     val movies: LiveData<List<Movie>>
         get() = _movies
 
-    //pour lire one movie
+    // pour lire one movie
     private val _onemovie: MutableLiveData<MovieDetails> = MutableLiveData()
     val movie: LiveData<MovieDetails>
         get() = _onemovie
@@ -93,19 +93,19 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
         }
     }
 
-    //recuperer un seul film pour avoir toutes ses infos
+    // recuperer un seul film pour avoir toutes ses infos
     fun getOneMovie(movId: String) {
         viewModelScope.launch(Dispatchers.IO) {
             when (val result = repository.getOneMovie(movId)) {
                 is Result.Succes -> {
                     Log.d("CREATION ONE MOVIE", result.toString())
-                    _onemovie.postValue(result.data)                }
+                    _onemovie.postValue(result.data)
+                }
                 is Result.Error -> {
-                    Log.d("***Result get One Movie - View Model","Error")
+                    Log.d("***Result get One Movie - View Model", "Error")
                     _error.postValue(result.message)
                 }
             }
         }
     }
 }
-

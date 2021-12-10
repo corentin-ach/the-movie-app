@@ -1,6 +1,7 @@
 package com.gmail.eamosse.imdb.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.imdb.databinding.FragmentHomeSecondBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.*
 
 class HomeSecondFragment : Fragment() {
 
@@ -53,4 +56,6 @@ class HomeSecondFragment : Fragment() {
             )
         }
     }
+
+
 }

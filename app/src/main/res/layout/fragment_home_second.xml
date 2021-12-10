@@ -12,6 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:context=".ui.home.HomeSecondFragment"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         >

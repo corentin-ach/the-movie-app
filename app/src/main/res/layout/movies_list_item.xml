@@ -26,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/movie_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -42,35 +42,50 @@
             app:layout_constraintVertical_bias="0.068"
             tools:text="Film trop bien" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/movie_vote"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/notetext"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
-            android:gravity="center"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="Note:"
+            app:layout_constraintStart_toEndOf="@id/movie_avatar"
+            app:layout_constraintTop_toBottomOf="@id/movie_name" />
+
+        <TextView
+            android:id="@+id/movie_vote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:text="@{item.vote}"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/movie_avatar"
-            app:layout_constraintStart_toStartOf="@id/movie_avatar"
-            app:layout_constraintTop_toTopOf="@id/movie_avatar"
-            tools:text="Vote : note du film" />
+            app:layout_constraintStart_toEndOf="@id/notetext"
+            app:layout_constraintTop_toTopOf="@id/notetext"
+            tools:text="7.3"/>
+
+        <TextView
+            android:id="@+id/datetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Date:"
+            app:layout_constraintStart_toStartOf="@id/notetext"
+            app:layout_constraintTop_toBottomOf="@id/notetext" />
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/movie_date"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="92dp"
+            android:layout_marginStart="8dp"
             android:gravity="center"
             android:text="@{item.date}"
             android:textColor="@android:color/black"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/movie_avatar"
-            app:layout_constraintStart_toStartOf="@id/movie_avatar"
-            app:layout_constraintTop_toTopOf="@id/movie_avatar"
-            app:layout_constraintVertical_bias="0.802"
-            tools:text="Date du film" />
-
+            app:layout_constraintStart_toEndOf="@id/datetext"
+            app:layout_constraintTop_toTopOf="@id/datetext"
+            tools:text="05/10/1997" />
 
         <ImageButton
             android:id="@+id/show_Category"
