@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gmail.eamosse.idbdata.data.Category
 import com.gmail.eamosse.idbdata.data.Movie
+import com.gmail.eamosse.idbdata.data.MovieDetails
 import com.gmail.eamosse.idbdata.data.Token
 import com.gmail.eamosse.idbdata.repository.MovieRepository
 import com.gmail.eamosse.idbdata.utils.Result
@@ -32,8 +33,8 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
         get() = _movies
 
     //pour lire one movie
-    private val _onemovie: MutableLiveData<Movie> = MutableLiveData()
-    val movie: LiveData<Movie>
+    private val _onemovie: MutableLiveData<MovieDetails> = MutableLiveData()
+    val movie: LiveData<MovieDetails>
         get() = _onemovie
 
     private val _error: MutableLiveData<String> = MutableLiveData()

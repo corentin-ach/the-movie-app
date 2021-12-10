@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.gmail.eamosse.imdb.R
 import com.gmail.eamosse.imdb.databinding.FragmentHomeThirdBinding
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.fragment_home_third.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeThirdFragment : Fragment() {
@@ -43,8 +44,9 @@ class HomeThirdFragment : Fragment() {
                 movie.observe(
                     viewLifecycleOwner,
                     Observer {
-                        chargerPosterPicasso(it.poster)
-                        title.text = it.name
+                        chargerPosterPicasso(it.backdrop_path)
+                        title.text = " "+it.name+" "
+                        overview.text = it.overview
                     }
                 )
             }

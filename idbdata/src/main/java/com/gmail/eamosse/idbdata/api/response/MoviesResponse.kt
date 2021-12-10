@@ -26,7 +26,6 @@ internal fun MoviesResponse.Movie.toMovie() = Movie(
     name = name,
     vote = vote,
     date = date,
-    poster = "https://image.tmdb.org/t/p/w185$poster",
-    overview = "nothing"
+    poster = "https://image.tmdb.org/t/p/w185$poster"
 )
 
