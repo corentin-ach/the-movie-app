@@ -1,5 +1,6 @@
 package com.gmail.eamosse.imdb.ui.home
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.gmail.eamosse.idbdata.data.Company
+import com.gmail.eamosse.idbdata.data.MovieDetails
 import com.gmail.eamosse.imdb.R
 import com.gmail.eamosse.imdb.databinding.FragmentHomeThirdBinding
 import com.squareup.picasso.Picasso
@@ -48,7 +51,10 @@ class HomeThirdFragment : Fragment() {
                         chargerPosterPicasso(it.backdrop_path)
                         title.text = " " + it.name + " "
                         overview.text = it.overview
-                        vote_average.text = it.vote_average.toString()
+                        checkVote(it)
+
+
+                        // checkCompany(it.production_companies)
                     }
                 )
             }
@@ -59,6 +65,35 @@ class HomeThirdFragment : Fragment() {
                 }
             )
         }
+    }
+
+    private fun checkVote(it: MovieDetails?) {
+        if (it != null) {
+            var voteavgfloat: Float = it.vote_average.toFloat()
+            voteavgfloat *= 10
+            binding.voteAverage.text = "%.0f".format(voteavgfloat) + "%"
+            if (80 <= voteavgfloat) {
+                // Log.d("Movie ${movie.name}, nbr: ${nbr}","superieur a 8")
+                binding.voteAverage.setTextColor(Color.parseColor("#33CC66"))
+            } else if ((60 <= voteavgfloat) && (80 > voteavgfloat)) {
+                // Log.d("Movie ${movie.name}, nbr: ${nbr}","entre 6 et 8")
+                binding.voteAverage.setTextColor(Color.parseColor("#f4d03f"))
+            } else if (voteavgfloat <60) {
+                // Log.d("Movie ${movie.name}, nbr: ${nbr}","inferieur à 6")
+                binding.voteAverage.setTextColor(Color.parseColor("#e33712"))
+            }
+            binding.voteCount.text = it.vote_count
+        }
+    }
+
+    private fun checkCompany(it: List<Company>) {
+        var result: String = ""
+
+        for (company in 0..it.count()) {
+            result += " " + it[company].name + " "
+        }
+
+        binding.company.text = result
     }
 
     private fun chargerPosterPicasso(poster: String) {

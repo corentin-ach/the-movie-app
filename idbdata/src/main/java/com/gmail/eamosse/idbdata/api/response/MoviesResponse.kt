@@ -28,4 +28,3 @@ internal fun MoviesResponse.Movie.toMovie() = Movie(
     date = date,
     poster = "https://image.tmdb.org/t/p/w185$poster"
 )
-

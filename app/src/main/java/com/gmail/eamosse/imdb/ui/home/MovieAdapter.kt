@@ -11,8 +11,6 @@ import com.gmail.eamosse.idbdata.data.Movie
 import com.gmail.eamosse.imdb.R
 import com.gmail.eamosse.imdb.databinding.MoviesListItemBinding
 import com.squareup.picasso.Picasso
-import okhttp3.internal.wait
-import java.util.*
 
 class MovieAdapter(private val items: List<Movie>) :
     RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
@@ -44,7 +42,7 @@ class MovieAdapter(private val items: List<Movie>) :
             Navigation.findNavController(it).navigate(action)
         }
         val movie: Movie = items[position]
-        //Change la couleur de la note en fonction de son niveau
+        // Change la couleur de la note en fonction de son niveau
         checkNote(movie, holder)
         // Display Neighbour Avatar
         Picasso.get()

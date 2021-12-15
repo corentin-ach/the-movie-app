@@ -1,5 +1,6 @@
 package com.gmail.eamosse.idbdata.api.service
 
+import com.gmail.eamosse.idbdata.api.response.*
 import com.gmail.eamosse.idbdata.api.response.CategoryResponse
 import com.gmail.eamosse.idbdata.api.response.MoviesResponse
 import com.gmail.eamosse.idbdata.api.response.OneMovieResponse
