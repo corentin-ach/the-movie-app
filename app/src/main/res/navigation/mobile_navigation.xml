@@ -60,6 +60,6 @@
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.gmail.eamosse.imdb.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:label="ABOUT AS"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
