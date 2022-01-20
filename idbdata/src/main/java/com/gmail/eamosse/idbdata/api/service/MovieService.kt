@@ -2,6 +2,7 @@ package com.gmail.eamosse.idbdata.api.service
 
 import com.gmail.eamosse.idbdata.api.response.*
 import com.gmail.eamosse.idbdata.api.response.CategoryResponse
+import com.gmail.eamosse.idbdata.api.response.MovieLatestResponse
 import com.gmail.eamosse.idbdata.api.response.MoviesResponse
 import com.gmail.eamosse.idbdata.api.response.OneMovieResponse
 import com.gmail.eamosse.idbdata.api.response.TokenResponse
@@ -23,4 +24,7 @@ internal interface MovieService {
     // lien okkk https://api.themoviedb.org/3/movie/[ID_MOVIE]?api_key=507a86e6d98ae2b2cd600e594ee02637
     @GET("movie/{movie_id}")
     suspend fun getOneMovie(@Path("movie_id") movId: String): Response<OneMovieResponse>
+
+    @GET("movie/latest")
+    suspend fun getMovieLatest(): Response<MovieLatestResponse>
 }

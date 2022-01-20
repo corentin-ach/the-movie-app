@@ -6,10 +6,7 @@ import com.gmail.eamosse.idbdata.api.response.toCategory
 import com.gmail.eamosse.idbdata.api.response.toEntity
 import com.gmail.eamosse.idbdata.api.response.toMovie
 import com.gmail.eamosse.idbdata.api.response.toToken
-import com.gmail.eamosse.idbdata.data.Category
-import com.gmail.eamosse.idbdata.data.Movie
-import com.gmail.eamosse.idbdata.data.MovieDetails
-import com.gmail.eamosse.idbdata.data.Token
+import com.gmail.eamosse.idbdata.data.*
 import com.gmail.eamosse.idbdata.datasources.LocalDataSource
 import com.gmail.eamosse.idbdata.datasources.OnlineDataSource
 import com.gmail.eamosse.idbdata.utils.Result
@@ -79,6 +76,16 @@ class MovieRepository : KoinComponent {
                 val movie = result.data.toMovieDetails()
                 Log.d("CREATION ONE MOVIE", movie.toString())
                 Result.Succes(movie)
+            }
+            is Result.Error -> result
+        }
+    }
+
+    suspend fun getMovieLatest(): Result<MovieLatest> {
+        return when (val result = online.getMovieLatest()) {
+            is Result.Succes -> {
+                val latest = result.data.toMovieLatest()
+                Result.Succes(latest)
             }
             is Result.Error -> result
         }
