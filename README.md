@@ -50,20 +50,20 @@ Techniquement, ce projet devrait nous permettre d'expérimenter de manière plus
     - Vidéos de démonstration de l'application 
 
 ### Rendu
-Contexte: on devait réaliser un projet Anneflix en utilisant la base de données TheMoovieDB.
-Fonctionnalité 5 vue (Fragments) + about us:
+- Contexte: on devait réaliser un projet Anneflix en utilisant la base de données TheMoovieDB.
+- Fonctionnalité 5 vue (Fragments) + about us:
     - Page d'accueil (liste les catégories)
     - Liste des films en fonctions de la catégorie
     - Détails des films quand on clique sur un film
     - Films les mieux notés
     - Films actuellement en salle de cinéma
     - About us
-Membre du groupe:
+- Membre du groupe:
     - ACH Corentin
     - BABET Florent
     - MENGELLE Remy
     - HOUMMANI MOHAMED Karam
-Lien vidéos: https://youtu.be/AMFo8Z38SUw
+- Lien vidéos: https://youtu.be/AMFo8Z38SUw
 
 
 
