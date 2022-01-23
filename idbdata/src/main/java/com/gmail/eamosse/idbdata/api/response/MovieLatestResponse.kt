@@ -5,24 +5,26 @@ import com.google.gson.annotations.SerializedName
 
 internal data class MovieLatestResponse(
 
-    @SerializedName("id")
-    val id: Int,
-    @SerializedName("original_title")
-    val name: String,
-    @SerializedName("vote_average")
-    val vote: String,
-    @SerializedName("release_date")
-    val date: String,
-    @SerializedName("poster_path")
-    val poster: String
+    @SerializedName("results")
+    val results: List<MovieLatest>,
+) {
+    data class MovieLatest(
+        @SerializedName("id")
+        val id: Int,
+        @SerializedName("original_title")
+        val name: String,
+        @SerializedName("release_date")
+        val date: String,
+        @SerializedName("poster_path")
+        val poster: String?
 
-)
+    )
+}
 
-internal fun MovieLatestResponse.toMovieLatest() = MovieLatest(
+internal fun MovieLatestResponse.MovieLatest.toMovieLatest() = MovieLatest(
     id = id,
     name = name,
-    vote = vote,
     date = date,
-    poster = poster
+    poster = "https://image.tmdb.org/t/p/w185$poster"
 
 )

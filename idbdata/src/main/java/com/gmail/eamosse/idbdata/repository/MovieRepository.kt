@@ -81,11 +81,14 @@ class MovieRepository : KoinComponent {
         }
     }
 
-    suspend fun getMovieLatest(): Result<MovieLatest> {
+    suspend fun getMovieLatest(): Result<List<MovieLatest>> {
         return when (val result = online.getMovieLatest()) {
             is Result.Succes -> {
-                val latest = result.data.toMovieLatest()
-                Result.Succes(latest)
+                val movies = result.data.map {
+                    it.toMovieLatest()
+                }
+                Log.d("CREATION", movies.toString())
+                Result.Succes(movies)
             }
             is Result.Error -> result
         }

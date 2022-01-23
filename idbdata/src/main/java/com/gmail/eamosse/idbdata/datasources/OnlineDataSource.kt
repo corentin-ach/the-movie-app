@@ -106,11 +106,11 @@ internal class OnlineDataSource(private val service: MovieService) {
         }
     }
 
-    suspend fun getMovieLatest(): Result<MovieLatestResponse> {
+    suspend fun getMovieLatest(): Result<List<MovieLatestResponse.MovieLatest>> {
         return try {
             val response = service.getMovieLatest()
             if (response.isSuccessful) {
-                Result.Succes(response.body()!!)
+                Result.Succes(response.body()!!.results)
             } else {
                 Result.Error(
                     exception = Exception(),
