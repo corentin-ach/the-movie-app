@@ -26,4 +26,6 @@ internal interface MovieService {
 
     @GET("movie/top_rated")
     suspend fun getMovieTopRated(): Response<TopRatedResponse>
+    @GET("movie/now_playing")
+    suspend fun getTv(): Response<TvResponse>
 }

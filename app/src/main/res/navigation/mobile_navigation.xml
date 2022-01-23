@@ -57,6 +57,11 @@
         android:name="com.gmail.eamosse.imdb.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_Home_to_navigation_home_third"
+            app:destination="@id/navigation_home_third" />
+
+
         <argument
             android:name="myArg"
             app:argType="string" />
@@ -66,4 +71,15 @@
         android:name="com.gmail.eamosse.imdb.ui.notifications.NotificationsFragment"
         android:label="ABOUT AS"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_Discover_Tv"
+        android:name="com.gmail.eamosse.imdb.ui.DiscoverTv.TvFragment"
+        android:label="Au Cinéma"
+        tools:layout="@layout/fragment_discovertv">
+        <action
+            android:id="@+id/action_navigation_discover_to_navigation_home_third"
+            app:destination="@id/navigation_home_third" />
+    </fragment>
+
+
 </navigation>

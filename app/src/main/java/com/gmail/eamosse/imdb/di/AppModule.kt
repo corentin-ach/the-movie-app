@@ -1,6 +1,7 @@
 package com.gmail.eamosse.imdb.di
 
 import android.content.Context
+import com.gmail.eamosse.imdb.ui.DiscoverTv.TvViewModel
 import com.gmail.eamosse.imdb.ui.dashboard.DashboardViewModel
 import com.gmail.eamosse.imdb.ui.home.HomeViewModel
 import org.koin.android.ext.koin.androidContext
@@ -30,4 +31,8 @@ val appModule = module {
     viewModel {
         DashboardViewModel(repository = get())
     }
+    viewModel {
+        TvViewModel(repository = get())
+    }
+
 }

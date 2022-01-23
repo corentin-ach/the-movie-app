@@ -125,4 +125,25 @@ internal class OnlineDataSource(private val service: MovieService) {
             )
         }
     }
+
+    suspend fun getTv(): Result<List<TvResponse.Tv>> {
+        return try {
+            val response = service.getTv()
+            if (response.isSuccessful) {
+                Result.Succes(response.body()!!.results)
+            } else {
+                Result.Error(
+                    exception = Exception(),
+                    message = response.message(),
+                    code = response.code()
+                )
+            }
+        } catch (e: Exception) {
+            Result.Error(
+                exception = e,
+                message = e.message ?: "No message",
+                code = -1
+            )
+        }
+    }
 }

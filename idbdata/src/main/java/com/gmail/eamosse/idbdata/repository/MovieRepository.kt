@@ -81,11 +81,26 @@ class MovieRepository : KoinComponent {
         }
     }
 
-    suspend fun getMovieLatest(): Result<List<MovieTopRated>> {
+    suspend fun getMovieTopRated(): Result<List<MovieTopRated>> {
         return when (val result = online.getMovieTopRated()) {
             is Result.Succes -> {
                 val movies = result.data.map {
                     it.toMovieTopRated()
+                }
+                Log.d("CREATION", movies.toString())
+                Result.Succes(movies)
+            }
+            is Result.Error -> result
+        }
+    }
+
+    suspend fun getTv(): Result<List<Tv>> {
+        return when (val result = online.getTv()) {
+            is Result.Succes -> {
+                // On utilise la fonction map pour convertir les films de la réponse serveur
+                // en liste de categories d'objets de l'applicatio
+                val movies = result.data.map {
+                    it.toTv()
                 }
                 Log.d("CREATION", movies.toString())
                 Result.Succes(movies)

@@ -1,13 +1,14 @@
 package com.gmail.eamosse.idbdata.api.response
 
 import com.gmail.eamosse.idbdata.data.Movie
+import com.gmail.eamosse.idbdata.data.Tv
 import com.google.gson.annotations.SerializedName
-internal data class MoviesResponse(
-    // changer movies par results
+
+internal data class TvResponse(
     @SerializedName("results")
-    val results: List<Movie>,
+    val results: List<Tv>,
 ) {
-    data class Movie(
+    data class Tv(
         @SerializedName("id")
         val id: Int,
         @SerializedName("original_title")
@@ -21,10 +22,10 @@ internal data class MoviesResponse(
     )
 }
 
-internal fun MoviesResponse.Movie.toMovie() = Movie(
+internal fun TvResponse.Tv.toTv() = Tv(
     id = id,
     name = name,
     vote = vote,
     date = date,
-    poster = "https://image.tmdb.org/t/p/w185$poster"
+    poster = "https://image.tmdb.org/t/p/w500$poster"
 )

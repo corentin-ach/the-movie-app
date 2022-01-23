@@ -1,4 +1,4 @@
-package com.gmail.eamosse.imdb.ui.dashboard
+package com.gmail.eamosse.imdb.ui.DiscoverTv
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,36 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.navArgs
-import com.gmail.eamosse.imdb.databinding.FragmentDashboardBinding
+import com.gmail.eamosse.imdb.databinding.FragmentDiscovertvBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.util.*
 
-class DashboardFragment : Fragment() {
+class TvFragment : Fragment() {
 
-    private val dashboardViewModel: DashboardViewModel by viewModel()
-    private val args: DashboardFragmentArgs by navArgs()
-    private lateinit var binding: FragmentDashboardBinding
+    private val TvViewModel: TvViewModel by viewModel()
+    private lateinit var binding: FragmentDiscovertvBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        binding = FragmentDiscovertvBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        with(dashboardViewModel) {
-            getMovieTopRated()
+        with(TvViewModel) {
+            getTv()
 
-            movieTopRated.observe(
+            TvDiscover.observe(
                 viewLifecycleOwner,
                 Observer {
-                    binding.movieTopRatedList.adapter = DashboardAdapter(it)
+                    binding.movieList.adapter = TvAdapter(it)
                 }
             )
             error.observe(
