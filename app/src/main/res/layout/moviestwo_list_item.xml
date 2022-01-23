@@ -7,7 +7,7 @@
 
         <variable
             name="item"
-            type="com.gmail.eamosse.idbdata.data.MovieLatest" />
+            type="com.gmail.eamosse.idbdata.data.MovieTopRated" />
     </data>
 
 

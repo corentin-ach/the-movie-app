@@ -1,14 +1,15 @@
 package com.gmail.eamosse.idbdata.api.response
 
-import com.gmail.eamosse.idbdata.data.MovieLatest
+// import com.gmail.eamosse.idbdata.data.MovieLatest
+import com.gmail.eamosse.idbdata.data.MovieTopRated
 import com.google.gson.annotations.SerializedName
 
-internal data class MovieLatestResponse(
+internal data class TopRatedResponse(
 
     @SerializedName("results")
-    val results: List<MovieLatest>,
+    val results: List<MovieTopRated>,
 ) {
-    data class MovieLatest(
+    data class MovieTopRated(
         @SerializedName("id")
         val id: Int,
         @SerializedName("original_title")
@@ -21,7 +22,7 @@ internal data class MovieLatestResponse(
     )
 }
 
-internal fun MovieLatestResponse.MovieLatest.toMovieLatest() = MovieLatest(
+internal fun TopRatedResponse.MovieTopRated.toMovieTopRated() = MovieTopRated(
     id = id,
     name = name,
     date = date,

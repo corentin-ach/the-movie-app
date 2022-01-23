@@ -7,7 +7,7 @@
     <data>
         <variable
             name="item"
-            type="com.gmail.eamosse.idbdata.data.MovieLatest" />
+            type="com.gmail.eamosse.idbdata.data.MovieTopRated" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,16 +22,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="text"
+            android:text="@string/top_rated"
             android:textColor="@android:color/black"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/movie_latest_list"
+            app:layout_constraintBottom_toTopOf="@+id/movie_Top_Rated_list"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Film trop bien" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movie_latest_list"
+        android:id="@+id/movie_Top_Rated_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"

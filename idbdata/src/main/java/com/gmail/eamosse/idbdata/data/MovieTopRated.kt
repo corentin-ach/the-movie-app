@@ -1,6 +1,6 @@
 package com.gmail.eamosse.idbdata.data
 
-data class MovieLatest(
+data class MovieTopRated(
     val id: Int,
     val name: String,
     val date: String,

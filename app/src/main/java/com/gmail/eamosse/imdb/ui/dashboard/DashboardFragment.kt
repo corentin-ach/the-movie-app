@@ -32,11 +32,10 @@ class DashboardFragment : Fragment() {
         with(dashboardViewModel) {
             getMoviesLatest()
 
-            movielatest.observe(
+            movieTopRated.observe(
                 viewLifecycleOwner,
                 Observer {
-                    binding.movieTestName.text = it[0].id.toString()
-                    binding.movieLatestList.adapter = DashboardAdapter(it)
+                    binding.movieTopRatedList.adapter = DashboardAdapter(it)
                 }
             )
             error.observe(

@@ -1,11 +1,11 @@
 package com.gmail.eamosse.imdb.ui.dashboard
 
-import android.util.Log
+// import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.gmail.eamosse.idbdata.data.MovieLatest
+import com.gmail.eamosse.idbdata.data.MovieTopRated
 import com.gmail.eamosse.idbdata.data.Token
 import com.gmail.eamosse.idbdata.repository.MovieRepository
 import com.gmail.eamosse.idbdata.utils.Result
@@ -19,9 +19,9 @@ class DashboardViewModel(private val repository: MovieRepository) : ViewModel() 
     val token: LiveData<Token>
         get() = _token
 
-    private val _movieslatest: MutableLiveData<List<MovieLatest>> = MutableLiveData()
-    val movielatest: LiveData<List<MovieLatest>>
-        get() = _movieslatest
+    private val _movieTopRated: MutableLiveData<List<MovieTopRated>> = MutableLiveData()
+    val movieTopRated: LiveData<List<MovieTopRated>>
+        get() = _movieTopRated
 
     private val _error: MutableLiveData<String> = MutableLiveData()
     val error: LiveData<String>
@@ -52,7 +52,7 @@ class DashboardViewModel(private val repository: MovieRepository) : ViewModel() 
         viewModelScope.launch(Dispatchers.IO) {
             when (val result = repository.getMovieLatest()) {
                 is Result.Succes -> {
-                    _movieslatest.postValue(result.data)
+                    _movieTopRated.postValue(result.data)
                 }
                 is Result.Error -> {
                     _error.postValue(result.message)

@@ -10,4 +10,5 @@
     <string name="title_notifications">Notifications</string>
     <string name="selected_category">Pour la catégorie : %1$s</string>
     <string name="home_second">Liste des films</string>
+    <string name="top_rated">Top Rated</string>
 </resources>
